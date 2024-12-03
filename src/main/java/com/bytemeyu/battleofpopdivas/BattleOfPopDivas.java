@@ -1,7 +1,11 @@
 package com.bytemeyu.battleofpopdivas;
 
+import com.bytemeyu.battleofpopdivas.popdiva.PopDiva;
+
 public class BattleOfPopDivas {
     public static void main(String[] args) {
-        System.out.println("I'm the queen!!!");
+
+        PopDiva diva1 = new PopDiva("Beyonce", "R&B, Pop, Country", "North American");
+        diva1.currentStatus();
     }
 }

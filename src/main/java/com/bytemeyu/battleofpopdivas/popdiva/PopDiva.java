@@ -1,6 +1,6 @@
 package com.bytemeyu.battleofpopdivas.popdiva;
 
-public class PopDiva {
+public class PopDiva implements PopDivaInterface{
     private String name;
     private String musicalGenre;
     private String nationality;
@@ -87,5 +87,39 @@ public class PopDiva {
 
     public void setDraws(int draws) {
         this.draws = draws;
+    }
+
+    public void currentStatus() {
+        System.out.println("_________");
+        System.out.println(this.getName());
+        System.out.println(this.getMusicalGenre());
+        System.out.println(this.getNationality());
+        System.out.println(this.getGrammyNominations());
+        System.out.println(this.getGrammyWins());
+        System.out.println(this.getPopDivaScandals());
+        System.out.println(this.getWins());
+        System.out.println(this.getLosses());
+        System.out.println(this.getDraws());
+        System.out.println("_________");
+    }
+
+    @Override
+    public boolean introduceYourself() {
+        return false;
+    }
+
+    @Override
+    public boolean winBattle() {
+        return false;
+    }
+
+    @Override
+    public boolean loseBattle() {
+        return false;
+    }
+
+    @Override
+    public boolean drawBattle() {
+        return false;
     }
 }
