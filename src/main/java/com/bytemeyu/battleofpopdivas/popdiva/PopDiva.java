@@ -6,7 +6,7 @@ public class PopDiva implements PopDivaInterface{
     private String nationality;
     private int grammyNominations;
     private int grammyWins;
-    private int popDivaScandals;
+    private int scandalsScore;
     private int wins;
     private int losses;
     private int draws;
@@ -57,12 +57,12 @@ public class PopDiva implements PopDivaInterface{
         this.grammyWins = grammyWins;
     }
 
-    public int getPopDivaScandals() {
-        return popDivaScandals;
+    public int getScandalsScore() {
+        return scandalsScore;
     }
 
-    public void setPopDivaScandals(int popDivaScandals) {
-        this.popDivaScandals = popDivaScandals;
+    public void setScandalsScore(int scandalsScore) {
+        this.scandalsScore = scandalsScore;
     }
 
     public int getWins() {
@@ -94,18 +94,56 @@ public class PopDiva implements PopDivaInterface{
         System.out.println(this.getName());
         System.out.println(this.getMusicalGenre());
         System.out.println(this.getNationality());
-        System.out.println(this.getGrammyNominations());
-        System.out.println(this.getGrammyWins());
-        System.out.println(this.getPopDivaScandals());
-        System.out.println(this.getWins());
-        System.out.println(this.getLosses());
-        System.out.println(this.getDraws());
+        System.out.println("Grammy Nominations: " + this.getGrammyNominations());
+        System.out.println("Grammy Wins: " + this.getGrammyWins());
+        System.out.println("Scandals Score: " + this.getScandalsScore());
+        System.out.println("Wins: " + this.getWins());
+        System.out.println("Losses: " + this.getLosses());
+        System.out.println("Draws: " + this.getDraws());
         System.out.println("_________");
     }
 
     @Override
-    public boolean introduceYourself() {
-        return false;
+    public boolean presentation() {
+        System.out.println("We present " + this.getName() + ", " + this.getNationality() + " " + this.getMusicalGenre() + " singer!");
+        return true;
+    }
+
+    @Override
+    public void addGrammyNominations(int grammyNomination) {
+        int totalGrammyNominations = this.getGrammyNominations() + grammyNomination;
+        this.setGrammyNominations(totalGrammyNominations);
+    }
+
+    @Override
+    public void addGrammyWins(int grammyWin) {
+        int totalGrammyWins = this.getGrammyWins() + grammyWin;
+        this.setGrammyWins(totalGrammyWins);
+    }
+
+    @Override
+    public void addScandalsScore(String severityOfTheScandal) {
+        int scoreIncrement = 0;
+
+        switch (severityOfTheScandal) {
+            case "minor":
+                scoreIncrement = 1;
+                break;
+            case "noteworthy":
+                scoreIncrement = 2;
+                break;
+            case "significant":
+                scoreIncrement = 3;
+                break;
+            case "public outrage":
+                scoreIncrement = 6;
+                break;
+            default:
+                System.out.println("Invalid scandal severity: " + severityOfTheScandal);
+        }
+
+        int totalScandalsScore = this.getScandalsScore() + scoreIncrement;
+        this.setScandalsScore(totalScandalsScore);
     }
 
     @Override
