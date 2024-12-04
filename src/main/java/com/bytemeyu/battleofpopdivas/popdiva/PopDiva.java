@@ -12,9 +12,9 @@ public class PopDiva implements PopDivaInterface{
     private int draws;
 
     public PopDiva(String name, String musicalGenre, String nationality) {
-        this.name = name;
-        this.musicalGenre = musicalGenre;
-        this.nationality = nationality;
+        this.setName(name);
+        this.setMusicalGenre(musicalGenre);
+        this.setNationality(nationality);
     }
 
     public String getName() {
@@ -147,17 +147,14 @@ public class PopDiva implements PopDivaInterface{
     }
 
     @Override
-    public boolean winBattle() {
-        return false;
+    public void winBattle() {
     }
 
     @Override
-    public boolean loseBattle() {
-        return false;
+    public void loseBattle() {
     }
 
     @Override
-    public boolean drawBattle() {
-        return false;
+    public void drawBattle() {
     }
 }
