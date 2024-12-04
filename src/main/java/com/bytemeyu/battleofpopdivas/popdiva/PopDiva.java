@@ -104,9 +104,8 @@ public class PopDiva implements PopDivaInterface{
     }
 
     @Override
-    public boolean presentation() {
+    public void presentation() {
         System.out.println("We present " + this.getName() + ", " + this.getNationality() + " " + this.getMusicalGenre() + " singer!");
-        return true;
     }
 
     @Override
@@ -148,13 +147,16 @@ public class PopDiva implements PopDivaInterface{
 
     @Override
     public void winBattle() {
+        this.setWins(this.getWins() + 1);
     }
 
     @Override
     public void loseBattle() {
+        this.setLosses(this.getLosses() + 1);
     }
 
     @Override
     public void drawBattle() {
+        this.setDraws(this.getDraws() + 1);
     }
 }
