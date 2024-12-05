@@ -29,19 +29,20 @@ public class Battle implements BattleInterface{
 
     public void setChallenged(PopDiva challenged) {
         this.challenged = challenged;
-        this.isApproved();
-    }
 
-    public void isApproved() {
         if(this.getChallenger() != this.getChallenged()){
-            this.setApproved(true);
+            this.approved = true;
         } else {
-            this.setApproved(false);
+            this.approved = false;
         }
     }
 
-    public void setApproved(boolean approved) {
-        this.approved = approved;
+    public boolean isApproved() {
+        return this.approved;
+    }
+
+    public void setApproved() {
+        this.approved = this.isApproved();
     }
 
     public int getRounds() {
@@ -50,6 +51,14 @@ public class Battle implements BattleInterface{
 
     public void setRounds(int rounds) {
         this.rounds = rounds;
+    }
+
+    public void currentStatus() {
+        System.out.println("_________");
+        System.out.println("Challenger: " + this.getChallenger().getName());
+        System.out.println("Challenged: " + this.getChallenged().getName());
+        System.out.println("Approved? " + this.isApproved());
+        System.out.println("Rounds: " + this.getRounds());
     }
 
 
