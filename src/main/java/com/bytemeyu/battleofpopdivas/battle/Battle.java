@@ -6,6 +6,7 @@ public class Battle implements BattleInterface{
 
     private PopDiva challenger;
     private PopDiva challenged;
+    private boolean approved;
     private int rounds;
 
     public Battle(PopDiva challenger, PopDiva challenged, int rounds) {
@@ -28,6 +29,19 @@ public class Battle implements BattleInterface{
 
     public void setChallenged(PopDiva challenged) {
         this.challenged = challenged;
+        this.isApproved();
+    }
+
+    public void isApproved() {
+        if(this.getChallenger() != this.getChallenged()){
+            this.setApproved(true);
+        } else {
+            this.setApproved(false);
+        }
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public int getRounds() {
@@ -37,6 +51,8 @@ public class Battle implements BattleInterface{
     public void setRounds(int rounds) {
         this.rounds = rounds;
     }
+
+
 
     @Override
     public PopDiva vocalShowdown() {
