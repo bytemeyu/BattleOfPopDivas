@@ -41,9 +41,9 @@ public class Battle implements BattleInterface{
         return this.approved;
     }
 
-    public void setApproved() {
-        this.approved = this.isApproved();
-    }
+//    public void setApproved() {
+//        this.approved = this.isApproved();
+//    }
 
     public void currentStatus() {
         System.out.println("_________");
@@ -182,7 +182,7 @@ public class Battle implements BattleInterface{
 
     @Override
     public PopDiva resolveDraw() {
-        PopDiva tiebreaker = this.vocalShowdown();
+        PopDiva tiebreaker = this.grammyRelevance();
 
         if(tiebreaker == this.getChallenger()) {
             System.out.println("The biggest, wonderful, big winner is " + this.getChallenger().getName() + "!!!");
