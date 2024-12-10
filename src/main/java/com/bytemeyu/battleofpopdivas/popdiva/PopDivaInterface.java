@@ -8,5 +8,4 @@ public interface PopDivaInterface {
     public abstract void addScandalsScore(String severityOfTheScandal);
     public abstract void winBattle ();
     public abstract void loseBattle();
-    public abstract void drawBattle();
 }

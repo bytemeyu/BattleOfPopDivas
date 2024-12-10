@@ -9,7 +9,6 @@ public class PopDiva implements PopDivaInterface{
     private int scandalsScore;
     private int wins;
     private int losses;
-    private int draws;
 
     public PopDiva(String name, String musicalGenre, String nationality) {
         this.setName(name);
@@ -81,14 +80,6 @@ public class PopDiva implements PopDivaInterface{
         this.losses = losses;
     }
 
-    public int getDraws() {
-        return draws;
-    }
-
-    public void setDraws(int draws) {
-        this.draws = draws;
-    }
-
     public void currentStatus() {
         System.out.println("_________");
         System.out.println(this.getName());
@@ -99,7 +90,6 @@ public class PopDiva implements PopDivaInterface{
         System.out.println("Scandals Score: " + this.getScandalsScore());
         System.out.println("Wins: " + this.getWins());
         System.out.println("Losses: " + this.getLosses());
-        System.out.println("Draws: " + this.getDraws());
         System.out.println("_________");
     }
 
@@ -153,10 +143,5 @@ public class PopDiva implements PopDivaInterface{
     @Override
     public void loseBattle() {
         this.setLosses(this.getLosses() + 1);
-    }
-
-    @Override
-    public void drawBattle() {
-        this.setDraws(this.getDraws() + 1);
     }
 }

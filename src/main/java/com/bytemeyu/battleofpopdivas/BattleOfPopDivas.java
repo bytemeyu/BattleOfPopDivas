@@ -20,7 +20,14 @@ public class BattleOfPopDivas {
         diva2.presentation();
         diva2.currentStatus();
 
-        Battle battle1 = new Battle(diva2, diva1, 3);
+        PopDiva diva3 = new PopDiva("Olivia Rodrigo", "Teen Pop, Pop Rock, Pop", "North American");
+        diva3.presentation();
+        diva3.currentStatus();
+
+        Battle battle1 = new Battle(diva1, diva3);
         battle1.currentStatus();
+        //battle1.vocalShowdown();
+        //battle1.grammyRelevance();
+        System.out.println(battle1.battleAndDetermineWinner());
     }
 }
