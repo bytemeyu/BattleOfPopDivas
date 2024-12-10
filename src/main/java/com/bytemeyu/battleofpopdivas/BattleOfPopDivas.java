@@ -40,9 +40,15 @@ public class BattleOfPopDivas {
         diva1.currentStatus();
         diva2.currentStatus();
 
-        battle1.recordBattleResult();
+        Battle battle2 = new Battle(diva1, diva1);
+        battle2.currentStatus();
+        battle2.battleAndDetermineWinner();
 
-        diva1.currentStatus();
+        Battle battle3 = new Battle(diva2, diva3);
+        battle3.currentStatus();
+        battle3.battleAndDetermineWinner();
+
         diva2.currentStatus();
+        diva3.currentStatus();
     }
 }

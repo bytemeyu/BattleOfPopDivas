@@ -120,7 +120,7 @@ public class Battle implements BattleInterface{
     }
 
     @Override
-    public PopDiva battleAndDetermineWinner() {
+    public void battleAndDetermineWinner() {
         if(this.isApproved()) {
             int challengerOverallScore = 0;
             int challengedOverallScore = 0;
@@ -151,23 +151,20 @@ public class Battle implements BattleInterface{
 
             if(challengerOverallScore > challengedOverallScore) {
                 System.out.println("The biggest, wonderful, big winner is " + this.getChallenger().getName() + "!!!");
-                return this.getChallenger();
+                recordBattleResult(this.getChallenger());
             } else if(challengedOverallScore > challengerOverallScore) {
                 System.out.println("The biggest, wonderful, big winner is " + this.getChallenged().getName() + "!!!");
-                return this.getChallenged();
+                recordBattleResult(this.getChallenged());
             } else {
                 System.out.println("It's a draw!");
-                return this.resolveDraw();
             }
         } else {
             System.out.println("This battle was not approved. Try another one.");
-            return null;
         }
     }
 
     @Override
-    public void recordBattleResult() {
-        PopDiva winner = this.battleAndDetermineWinner();
+    public void recordBattleResult(PopDiva winner) {
 
         if(winner != null) {
             if(winner == this.getChallenger()) {

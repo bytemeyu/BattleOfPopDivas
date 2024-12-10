@@ -8,7 +8,7 @@ public interface BattleInterface {
     public abstract PopDiva danceOff();
     public abstract PopDiva grammyRelevance();
     public abstract PopDiva lossDueToScandals();
-    public abstract PopDiva battleAndDetermineWinner();
-    public abstract void recordBattleResult();
+    public abstract void battleAndDetermineWinner();
+    public abstract void recordBattleResult(PopDiva winner);
     public abstract PopDiva resolveDraw();
 }
