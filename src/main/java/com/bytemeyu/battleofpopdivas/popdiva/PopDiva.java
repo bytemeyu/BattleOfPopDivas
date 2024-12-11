@@ -45,7 +45,11 @@ public class PopDiva implements PopDivaInterface{
     }
 
     public void setGrammyNominations(int grammyNominations) {
-        this.grammyNominations = grammyNominations;
+        if(grammyNominations > 0) {
+            this.grammyNominations = grammyNominations;
+        } else {
+            System.out.println("Grammy nominations cannot be negative.");
+        }
     }
 
     public int getGrammyWins() {
@@ -53,7 +57,12 @@ public class PopDiva implements PopDivaInterface{
     }
 
     public void setGrammyWins(int grammyWins) {
-        this.grammyWins = grammyWins;
+        if(grammyWins > 0) {
+            this.grammyWins = grammyWins;
+        } else {
+            System.out.println("Grammy wins cannot be negative.");
+        }
+
     }
 
     public int getScandalsScore() {
@@ -69,7 +78,11 @@ public class PopDiva implements PopDivaInterface{
     }
 
     public void setWins(int wins) {
-        this.wins = wins;
+        if(wins > 0) {
+            this.wins = wins;
+        } else {
+            System.out.println("Wins cannot be negative.");
+        }
     }
 
     public int getLosses() {
@@ -77,7 +90,11 @@ public class PopDiva implements PopDivaInterface{
     }
 
     public void setLosses(int losses) {
-        this.losses = losses;
+        if(losses > 0) {
+            this.losses = losses;
+        } else {
+            System.out.println("Losses cannot be negative.");
+        }
     }
 
     public void currentStatus() {
@@ -133,8 +150,10 @@ public class PopDiva implements PopDivaInterface{
                 System.out.println("Invalid scandal severity: " + severityOfTheScandal);
         }
 
-        int totalScandalsScore = this.getScandalsScore() + scoreIncrement;
-        this.setScandalsScore(totalScandalsScore);
+        if(scoreIncrement > 0){
+            int totalScandalsScore = this.getScandalsScore() + scoreIncrement;
+            this.setScandalsScore(totalScandalsScore);
+        }
     }
 
     @Override

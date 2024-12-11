@@ -54,36 +54,29 @@ public class Battle implements BattleInterface{
 
 
 
-    @Override
-    public PopDiva vocalShowdown() {
+    private PopDiva randomMethod(String showdownType) {
         Random random = new Random();
 
-        int challengerVocalScore = random.nextInt(11);
-        int challengedVocalScore = random.nextInt(11);
+        int challengerScore = random.nextInt(11);
+        int challengedScore = random.nextInt(11);
 
-        if(challengerVocalScore > challengedVocalScore) {
-            System.out.println("Vocal showdown winner is " + this.getChallenger().getName() + "!");
+        if(challengerScore > challengedScore) {
+            System.out.println(showdownType + " winner is " + this.getChallenger().getName() + "!");
             return this.getChallenger();
         } else {
-            System.out.println("Vocal showdown winner is " + this.getChallenged().getName() + "!");
+            System.out.println(showdownType + " winner is " + this.getChallenged().getName() + "!");
             return this.getChallenged();
         }
     }
 
     @Override
+    public PopDiva vocalShowdown() {
+        return randomMethod("VocaShowdown");
+    }
+
+    @Override
     public PopDiva danceOff() {
-        Random random = new Random();
-
-        int challengerDanceScore = random.nextInt(11);
-        int challengedDanceScore = random.nextInt(11);
-
-        if(challengerDanceScore > challengedDanceScore) {
-            System.out.println("Dance off winner is " + this.getChallenger().getName() + "!");
-            return this.getChallenger();
-        } else {
-            System.out.println("Dance off winner is " + this.getChallenged().getName() + "!");
-            return this.getChallenged();
-        }
+        return randomMethod("Dance off");
     }
 
     @Override
@@ -157,6 +150,9 @@ public class Battle implements BattleInterface{
                 recordBattleResult(this.getChallenged());
             } else {
                 System.out.println("It's a draw!");
+                PopDiva tiebreakerWinner = resolveDraw();
+                System.out.println("The biggest, wonderful, big winner is " + tiebreakerWinner.getName() + "!!!");
+                recordBattleResult(tiebreakerWinner);
             }
         } else {
             System.out.println("This battle was not approved. Try another one.");
@@ -182,10 +178,8 @@ public class Battle implements BattleInterface{
         PopDiva tiebreaker = this.grammyRelevance();
 
         if(tiebreaker == this.getChallenger()) {
-            System.out.println("The biggest, wonderful, big winner is " + this.getChallenger().getName() + "!!!");
             return this.getChallenger();
         } else {
-            System.out.println("The biggest, wonderful, big winner is " + this.getChallenged().getName() + "!!!");
             return this.getChallenged();
         }
     }
